@@ -55,7 +55,7 @@ private:
 		}
 
 	private:
-		using storage_type = std::aligned_storage_t<sizeof(T), alignof(T)>;
+		using storage_type = typename std::aligned_storage<sizeof(T), alignof(T)>::type;
 		storage_type _element;
 
 	public:

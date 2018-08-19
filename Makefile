@@ -29,7 +29,7 @@ DEPS := $(subst .o,.d,${OBJS})
 
 INCLUDE_FLAGS := $(addprefix -I,${SRCDIR})
 
-CXXFLAGS_BASE := -std=c++17 -Wall -Wextra ${INCLUDE_FLAGS}
+CXXFLAGS_BASE := -std=c++11 -Wall -Wextra ${INCLUDE_FLAGS}
 CXXFLAGS_DEBUG := ${CXXFLAGS_BASE} -O0 -g2
 CXXFLAGS_RELEASE := ${CXXFLAGS_BASE} -O2 -g -DNDEBUG
 
