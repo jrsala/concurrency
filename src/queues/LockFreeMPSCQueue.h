@@ -87,6 +87,9 @@ public:
 		}
 	}
 
+	LockFreeMPSCQueue(const LockFreeMPSCQueue &) = delete;
+	LockFreeMPSCQueue & operator=(const LockFreeMPSCQueue &) = delete;
+
 	~LockFreeMPSCQueue()
 	{
 		for (size_t i = 0; i < _buffer_size; ++i)
