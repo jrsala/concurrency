@@ -93,6 +93,8 @@ public:
 		{
 			slot_alloc_traits::destroy(_slot_alloc, &_buffer[i]);
 		}
+
+		slot_alloc_traits::deallocate(_slot_alloc, _buffer, _buffer_size);
 	}
 
 	void enqueue(T && element_)
