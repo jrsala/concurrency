@@ -100,6 +100,27 @@ public:
 		slot_alloc_traits::deallocate(_slot_alloc, _buffer, _buffer_size);
 	}
 
+	size_t capacity() const
+	{
+		return _modulo_mask;
+	}
+
+	size_t size() const
+	{
+		return distance(
+			_read_index.load(std::memory_order_relaxed),
+			_write_index.load(std::memory_order_relaxed)
+		);
+	}
+
+	bool empty() const
+	{
+		return (
+			   _read_index.load(std::memory_order_relaxed)
+			== _write_index.load(std::memory_order_relaxed)
+		);
+	}
+
 	void enqueue(T && element_)
 	{
 		Slot * slot;
