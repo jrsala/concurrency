@@ -226,7 +226,7 @@ private:
 	alignas(CACHE_LINE_SIZE)
 	std::atomic<size_t> _read_index;
 
-	char cacheLinePadding[CACHE_LINE_SIZE - sizeof(_read_index)];
+	char _cache_line_padding[CACHE_LINE_SIZE - sizeof(_read_index)];
 };
 
 
